@@ -19,10 +19,14 @@ export class User {
     @Column({ default: "user" }) // Default role is "user"
     role: "user" | "admin"; // Only allow these values
 
-    constructor(name: string, email: string, password: string, role: "user" | "admin") {
+    @Column({ nullable: true })
+    bio?: string;
+
+    constructor(name: string, email: string, password: string, role: "user" | "admin", bio?: string) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.role = role;
+        this.bio = bio;
     }
 }

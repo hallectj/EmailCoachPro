@@ -66,3 +66,5 @@ logs
 # Other build artifacts
 dist/
 build/
+
+about_email_coach_pro.txt
