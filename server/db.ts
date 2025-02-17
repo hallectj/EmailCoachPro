@@ -1,6 +1,7 @@
 import { DataSource } from "typeorm";
 import dotenv from "dotenv";
 import { User } from "./models/Users";
+import { EmailTemplate } from "./models/EmailTemplate";
 
 dotenv.config();
 
@@ -13,7 +14,7 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_NAME,
     synchronize: true,
     logging: false,
-    entities: [User]
+    entities: [User, EmailTemplate]
   });
   
   export const connectDB = async () => {

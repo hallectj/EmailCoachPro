@@ -32,7 +32,7 @@ export const createUser: express.RequestHandler = async (req: Request, res: Resp
     const hashedPassword = await bcrypt.hash(password, 10);
     
     // Create and save the new user
-    const newUser: User = userRepository.create({ name, email, password: hashedPassword, role });
+    const newUser: User = userRepository.create({ name, email, password: hashedPassword, role, subscriptionTier: "free" });
     await userRepository.save(newUser);
 
     // Send welcome email

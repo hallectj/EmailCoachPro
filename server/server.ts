@@ -6,6 +6,7 @@ import { connectDB } from "./db";
 import testRoutes from "./routes/testRoutes";
 import userRoutes from "./routes/userRoutes";
 import emailRoutes from './routes/emailRoutes';
+import emailTemplateRoutes from "./routes/emailTemplateRoutes";
 
 dotenv.config();
 connectDB();
@@ -17,6 +18,12 @@ app.use(express.json());
 app.use("/api", testRoutes);
 app.use("/api", userRoutes);
 app.use("/api", emailRoutes);
+app.use("/api", emailTemplateRoutes);
+
+// app.use((req, res, next) => {
+//   console.log(`Incoming request: ${req.method} ${req.url}`);
+//   next();
+// });
 
 app.get("/", (req, res) => {
   res.send("EmailCoach Pro API is running...");
